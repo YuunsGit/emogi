@@ -1,4 +1,5 @@
 function getFlagEmoji(countryCode: string) {
+  // @ts-ignore
   const codePoints = countryCode
     .toUpperCase()
     .split("")
