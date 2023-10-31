@@ -13,8 +13,9 @@ export const metadata: Metadata = {
     description: "Leave your emogi! What is your mood today?",
     type: "website",
     url: "https://emogi.yunusemre.dev",
-    images: "/android-chrome-192x192.png",
+    images: "/thumbnail.png",
   },
+  themeColor: "#ee7f33",
   icons: [
     {
       url: "/favicon.ico",
