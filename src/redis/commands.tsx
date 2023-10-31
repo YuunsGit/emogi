@@ -36,7 +36,3 @@ export async function getRemainingCooldown(ip: string) {
   const cooldown = await redis.ttl(`cooldown:${ip}`);
   return cooldown || 0;
 }
-
-export async function subscribe() {
-  redis.subscribe("new_emogis");
-}
