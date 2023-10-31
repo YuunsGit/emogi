@@ -135,7 +135,7 @@ function MoodList({
           href="https://www.yunusemre.dev"
           rel="noreferrer noopener"
           target="_blank"
-          className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-lightGray dark:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
+          className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-lightGray dark:before:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
         >
           <Image
             src={Me}
