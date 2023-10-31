@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     url: "https://emogi.yunusemre.dev",
     images: "/thumbnail.png",
   },
-  themeColor: "#ee7f33",
   icons: [
     {
       url: "/favicon.ico",
@@ -23,6 +22,10 @@ export const metadata: Metadata = {
       sizes: "any",
     },
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ee7f33",
 };
 
 export default function RootLayout({
