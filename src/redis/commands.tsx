@@ -1,7 +1,7 @@
 "use server";
 
 import Redis from "ioredis";
-const redis = new Redis();
+const redis = new Redis(process.env.KV_URL);
 
 export async function submitEmogi(
   location: { ip: string; country: string },
