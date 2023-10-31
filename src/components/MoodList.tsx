@@ -1,6 +1,9 @@
 import { getFlagEmoji, toMMSS } from "@/utils";
 import { listAllEmogis, listEmogis, totalEmogiAmount } from "@/redis/commands";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Me from "../app/me.png";
 
 function MoodList({
   cooldownSecs,
@@ -9,6 +12,7 @@ function MoodList({
   cooldownSecs: number;
   currentMood: string;
 }) {
+  const [hoverPercentages, setHoverPercentages] = useState(false);
   const [moods, setMoods] = useState<{ country: string; mood: string }[]>([]);
   const [totalEmogis, setTotalEmogis] = useState(0);
   const [percentages, setPercentages] = useState<{ [emogi: string]: number }>();
@@ -52,33 +56,62 @@ function MoodList({
   }, []);
 
   return (
-    <div className="flex min-h-screen w-full items-end flex-col">
+    <div className="flex flex-col min-h-screen w-full">
       <div className="flex justify-between w-full h-[40vh] p-10 overflow-visible">
-        <div className="text-3xl flex flex-col gap-y-2 h-8 hover:h-full overflow-hidden transition-all">
-          {percentages &&
-            Object.keys(percentages || {}).map((emogi, index) => {
+        {percentages && (
+          <motion.div
+            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            transition={{ ease: "easeOut" }}
+            onHoverStart={() => setHoverPercentages(true)}
+            onHoverEnd={() => setHoverPercentages(false)}
+            className="text-3xl flex flex-col gap-y-2 ml-0"
+          >
+            {Object.keys(percentages || {}).map((emogi, index) => {
               return (
-                <div key={index}>
+                <motion.div
+                  animate={{
+                    opacity: index === 0 ? 1 : hoverPercentages ? 1 : 0,
+                    x: index === 0 ? 0 : hoverPercentages ? 0 : -20,
+                  }}
+                  initial={{ opacity: 0, x: -20 }}
+                  transition={{
+                    ease: "easeOut",
+                    delay:
+                      (!hoverPercentages
+                        ? Object.keys(percentages || {}).length - index
+                        : index) * 0.05,
+                  }}
+                  key={index}
+                >
                   {emogi} %{percentages[emogi]}
-                </div>
+                </motion.div>
               );
             })}
-        </div>
-        <div className="flex flex-col items-center w-32 text-xl">
-          <span className="font-bold text-coolOrange text-5xl align-middle">
-            {currentMood}
-          </span>
-          FOR
-          <span className="font-bold text-coolOrange text-4xl align-middle">
-            {toMMSS(cooldownSecs)}
-          </span>
-        </div>
+          </motion.div>
+        )}
+        {cooldownSecs && (
+          <motion.div
+            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            transition={{ ease: "easeOut" }}
+            className="flex flex-col gap-y-2 items-center w-32 text-xl ml-auto"
+          >
+            <span className="text-5xl align-middle">{currentMood}</span>
+            <span className="font-bold text-4xl align-middle">
+              {toMMSS(cooldownSecs)}
+            </span>
+          </motion.div>
+        )}
       </div>
-      <div className="relative flex gap-y-8 flex-col mb-16 mx-auto">
+      <div className="relative min-h-screen flex gap-y-8 flex-col mb-16 mx-auto">
         {moods.map((mood, index) => (
-          <div
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ delay: index / 10 }}
             key={index}
-            className={`uppercase text-3xl bg-darkGray rounded-xl px-8 py-6 border border-transparent hover:border-coolOrange transition-all ${
+            className={`uppercase text-2xl bg-darkGray rounded-xl px-8 py-6 border border-transparent hover:border-coolOrange transition-all ${
               index === 0 && "scale-110"
             } ${index === 1 && "scale-105"}`}
           >
@@ -88,7 +121,7 @@ function MoodList({
             </span>{" "}
             feels{" "}
             <span className="text-5xl align-middle mx-2">{mood.mood}</span>
-          </div>
+          </motion.div>
         ))}
         {totalEmogis > 16 && (
           <div className="uppercase text-center text-2xl bg-darkGray bg-opacity-40 rounded-xl px-8 py-6 border-2 border-darkGray border-dashed hover:border-coolOrange transition-all">
@@ -97,6 +130,22 @@ function MoodList({
           </div>
         )}
       </div>
+      <footer className="flex justify-center p-10">
+        <a
+          href="https://www.yunusemre.dev"
+          rel="noreferrer noopener"
+          target="_blank"
+          className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
+        >
+          <Image
+            src={Me}
+            alt="Yunus Emre Kepenek"
+            height={64}
+            width={64}
+            className="rounded-full"
+          />
+        </a>
+      </footer>
     </div>
   );
 }

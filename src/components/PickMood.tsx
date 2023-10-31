@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { submitEmogi } from "@/redis/commands";
 import { Dispatch, SetStateAction } from "react";
 
@@ -25,8 +26,20 @@ function PickMood({
 
   return (
     <>
-      <h1 className="text-7xl">Mood?</h1>
-      <div className="text-6xl flex gap-x-2 mt-12">
+      <motion.h1
+        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        transition={{ ease: "easeOut" }}
+        className="text-7xl"
+      >
+        Mood?
+      </motion.h1>
+      <motion.div
+        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -20 }}
+        transition={{ ease: "easeOut" }}
+        className="text-6xl flex gap-x-2 mt-12"
+      >
         <button
           disabled={!location}
           className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
@@ -62,7 +75,7 @@ function PickMood({
         >
           😡
         </button>
-      </div>
+      </motion.div>
     </>
   );
 }

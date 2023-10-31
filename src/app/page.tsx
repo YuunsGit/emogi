@@ -17,9 +17,12 @@ export default function Home() {
 
   useEffect(() => {
     (async function () {
-      const res = await fetch("https://api.country.is");
-      const loc: { ip: string; country: string } = await res.json();
-      setLocation(loc);
+      const res = await fetch("https://freeipapi.com/api/json");
+      const loc = await res.json();
+      setLocation({
+        country: loc.countryCode,
+        ip: loc.ipAddress,
+      });
     })();
   }, []);
 
