@@ -111,7 +111,7 @@ function MoodList({
             initial={{ opacity: 0 }}
             transition={{ delay: index / 10 }}
             key={index}
-            className={`uppercase text-2xl bg-darkGray rounded-xl px-8 py-6 border border-transparent hover:border-coolOrange transition-all ${
+            className={`uppercase text-2xl bg-lightGray dark:bg-darkGray rounded-xl px-8 py-6 border border-transparent hover:border-coolOrange transition-all ${
               index === 0 && "scale-110"
             } ${index === 1 && "scale-105"}`}
           >
@@ -124,7 +124,7 @@ function MoodList({
           </motion.div>
         ))}
         {totalEmogis > 16 && (
-          <div className="uppercase text-center text-2xl bg-darkGray bg-opacity-40 rounded-xl px-8 py-6 border-2 border-darkGray border-dashed hover:border-coolOrange transition-all">
+          <div className="uppercase text-center text-2xl bg-lightGray dark:bg-darkGray bg-opacity-40 rounded-xl px-8 py-6 border-2 border-darkGray border-dashed hover:border-coolOrange transition-all">
             <span className="text-green-800">{totalEmogis - 16}</span> more
             people feel alive
           </div>
@@ -135,7 +135,7 @@ function MoodList({
           href="https://www.yunusemre.dev"
           rel="noreferrer noopener"
           target="_blank"
-          className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
+          className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-lightGray dark:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
         >
           <Image
             src={Me}

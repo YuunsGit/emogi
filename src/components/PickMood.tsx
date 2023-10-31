@@ -42,35 +42,35 @@ function PickMood({
       >
         <button
           disabled={!location}
-          className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
+          className="rounded-xl border border-transparent p-4 bg-lightGray dark:bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
           onClick={() => handleMood("😃")}
         >
           😃
         </button>
         <button
           disabled={!location}
-          className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
+          className="rounded-xl border border-transparent p-4 bg-lightGray dark:bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
           onClick={() => handleMood("😳")}
         >
           😳
         </button>
         <button
           disabled={!location}
-          className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
+          className="rounded-xl border border-transparent p-4 bg-lightGray dark:bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
           onClick={() => handleMood("😭")}
         >
           😭
         </button>
         <button
           disabled={!location}
-          className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
+          className="rounded-xl border border-transparent p-4 bg-lightGray dark:bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
           onClick={() => handleMood("🤢")}
         >
           🤢
         </button>
         <button
           disabled={!location}
-          className="rounded-xl border border-transparent p-4 bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
+          className="rounded-xl border border-transparent p-4 bg-lightGray dark:bg-darkGray hover:border-coolOrange focus:ring-2 focus-visible:ring-2 ring-coolOrange transition-all disabled:animate-pulse"
           onClick={() => handleMood("😡")}
         >
           😡
