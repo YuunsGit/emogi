@@ -111,16 +111,18 @@ function MoodList({
             initial={{ opacity: 0 }}
             transition={{ delay: index / 10 }}
             key={index}
-            className={`uppercase text-2xl bg-lightGray dark:bg-darkGray rounded-xl px-8 py-6 border border-transparent hover:border-coolOrange transition-all ${
+            className={`uppercase text-2xl bg-lightGray dark:bg-darkGray rounded-xl px-8 py-4 border border-transparent hover:border-coolOrange transition-all ${
               index === 0 && "scale-110"
             } ${index === 1 && "scale-105"}`}
           >
-            Someone in{" "}
-            <span className="text-5xl align-middle mx-2">
-              {getFlagEmoji(mood.country)}
-            </span>{" "}
+            Someone in
+            <img
+              src={`https://flagsapi.com/${mood.country}/flat/64.png`}
+              alt="Country flag"
+              className="text-5xl align-middle mx-3 inline rounded-lg overflow-hidden"
+            />
             feels{" "}
-            <span className="text-5xl align-middle mx-2">{mood.mood}</span>
+            <span className="text-5xl align-middle mx-1">{mood.mood}</span>
           </motion.div>
         ))}
         {totalEmogis > 16 && (
