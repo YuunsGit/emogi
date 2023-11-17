@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://www.yunusemre.dev" target="_blank"><img alt="Logo" src="https://github.com/YuunsGit/emogi/assets/42357900/2141848a-a428-41b2-ad45-7e29dcaa9d66" width="36" /></a>
+  <a href="https://www.yunusemre.dev" target="_blank"><img alt="Logo" src="https://github.com/YuunsGit/emogi/assets/42357900/2141848a-a428-41b2-ad45-7e29dcaa9d66" width="20" /></a>
 </div>
 <h1 align="center">
   Emogi
