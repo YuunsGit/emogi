@@ -1,4 +1,4 @@
-import { getFlagEmoji, toMMSS } from "@/utils";
+import { toMMSS } from "@/utils";
 import { listAllEmogis, listEmogis, totalEmogiAmount } from "@/redis/commands";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -118,8 +118,10 @@ function MoodList({
             Someone in
             <img
               src={`https://flagsapi.com/${mood.country}/flat/64.png`}
-              alt="Country flag"
-              className="text-5xl align-middle mx-3 inline rounded-lg overflow-hidden"
+              onError={(ev) =>
+                ((ev.target as HTMLImageElement).src = "/fallback.png")
+              }
+              className="align-middle mx-3 inline rounded-lg overflow-hidden"
             />
             feels{" "}
             <span className="text-5xl align-middle mx-1">{mood.mood}</span>

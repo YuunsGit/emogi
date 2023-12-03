@@ -7,6 +7,9 @@ export async function submitEmogi(
   location: { ip: string; country: string },
   mood: string,
 ) {
+  if ((await getRemainingCooldown(location.ip)) > 0) return;
+  if (!["😃", "😳", "😭", "🤢", "😡"].includes(mood)) return;
+
   redis.lpush("emogis", `${mood}:${location.country}`);
   redis.set(
     `cooldown:${location.ip}`,
