@@ -142,6 +142,7 @@ function MoodList({
           className="relative before:content-[''] before:w-full before:h-full before:translate-y-6 before:rounded-full before:bg-lightGray dark:before:bg-darkGray before:absolute before:-z-10 hover:before:translate-y-0 hover:before:scale-125 before:transition-all"
         >
           <Image
+            unoptimized
             src={Me}
             alt="Yunus Emre Kepenek"
             height={64}
